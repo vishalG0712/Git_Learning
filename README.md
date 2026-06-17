@@ -30,7 +30,6 @@ A modern, fully responsive home page template built with **Tailwind CSS**, **Van
 ├── style.css          # Custom CSS with animations & utilities
 ├── main.js            # JavaScript for interactivity
 ├── README.md          # Project documentation (this file)
-└── text.txt           # Additional text resources
 ```
 
 ## 📖 File Descriptions
