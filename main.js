@@ -77,7 +77,7 @@ function initFormHandling() {
     setTimeout(() => {
       button.textContent = originalText;
       button.disabled = false;
-      showNotification('Message sent successfully! We'll be in touch soon.', 'success');
+      showNotification("Message sent successfully! We'll be in touch soon.", 'success');
       this.reset();
     }, 1500);
   });
