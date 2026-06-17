@@ -92,7 +92,7 @@ function isValidEmail(email) {
 // Show notification message
 function showNotification(message, type = 'info') {
   const notification = document.createElement('div');
-  notification.className = `fixed bottom-4 right-4 px-6 py-4 rounded-lg text-white shadow-lg ${
+  notification.className = `notification-toast fixed bottom-4 right-4 px-6 py-4 rounded-lg text-white shadow-lg ${
     type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500'
   }`;
   notification.textContent = message;
@@ -100,8 +100,7 @@ function showNotification(message, type = 'info') {
   document.body.appendChild(notification);
 
   setTimeout(() => {
-    notification.style.opacity = '0';
-    notification.style.transition = 'opacity 0.3s';
+    notification.classList.add('hide');
     setTimeout(() => notification.remove(), 300);
   }, 3000);
 }
@@ -131,6 +130,29 @@ function initNavIndicator() {
   window.addEventListener('scroll', updateActiveLink);
 }
 
+// Intersection Observer for scroll animations
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }, index * 100);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('section:not(section:first-child)').forEach(section => {
+    observer.observe(section);
+  });
+}
+
 // Initialize all functionality
 function initApp() {
   console.log('Initializing Road Dev app...');
@@ -138,6 +160,7 @@ function initApp() {
   initSmoothScroll();
   initFormHandling();
   initNavIndicator();
+  initScrollAnimations();
   console.log('App initialized successfully');
 }
 

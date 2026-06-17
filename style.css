@@ -1,0 +1,333 @@
+/**
+ * Road Dev - Custom Styles
+ * Animations, transitions, and custom utilities beyond Tailwind
+ */
+
+/* CSS Variables / Custom Properties */
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #06b6d4;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth Transitions */
+* {
+  transition: color var(--transition-fast), 
+              background-color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+a, button {
+  transition: all var(--transition-base);
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Utility Classes */
+.animate-fade-in {
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+.animate-slide-down {
+  animation: slideInDown var(--transition-base) ease-out;
+}
+
+.animate-slide-up {
+  animation: slideInUp var(--transition-base) ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Header Enhancements */
+header {
+  animation: slideInDown 0.6s ease-out;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+  pointer-events: none;
+}
+
+/* Button Hover Effects */
+button, a[role="button"],
+.rounded-full.bg-indigo-600,
+.rounded-full.border.border-slate-200 {
+  position: relative;
+  overflow: hidden;
+}
+
+button::before, a[role="button"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:active::before, a[role="button"]:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Navigation Link Active State */
+nav a {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transform: translateX(-50%);
+  transition: width var(--transition-base);
+}
+
+nav a:hover::after,
+nav a.text-indigo-600::after {
+  width: 100%;
+}
+
+/* Form Enhancements */
+input, textarea {
+  transition: all var(--transition-base);
+  background-color: #f8fafc;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  background-color: #fff;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #cbd5e1;
+}
+
+input:valid {
+  border-color: var(--success-color);
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: var(--error-color);
+}
+
+/* Card Hover Effects */
+article, section > div > div {
+  transition: all var(--transition-base);
+}
+
+article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge Animations */
+.inline-flex.items-center.gap-2.rounded-full.bg-indigo-100 {
+  animation: slideInDown 0.8s ease-out 0.2s backwards;
+}
+
+/* Footer Styles */
+footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  animation: slideInUp 0.8s ease-out;
+}
+
+footer a {
+  color: #cbd5e1;
+  transition: color var(--transition-base);
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  header {
+    animation: none;
+  }
+
+  section {
+    animation: fadeIn var(--transition-base) ease-out;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #6366f1;
+    --secondary-color: #22d3ee;
+  }
+}
+
+/* Print Styles */
+@media print {
+  header, footer, button, a[role="button"] {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Loading State */
+.is-loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Notification Toast */
+.notification-toast {
+  animation: slideInUp var(--transition-base) ease-out;
+}
+
+.notification-toast.hide {
+  animation: slideInUp var(--transition-base) ease-in reverse;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus Visible (Keyboard Navigation) */
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline-offset: 4px;
+}
