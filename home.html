@@ -7,6 +7,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 text-slate-900">
+  <div class="bg-indigo-600 text-white">
+    <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm sm:px-6 lg:px-8">
+      <div>We're hiring — build with us. <a href="#" class="underline">View openings</a></div>
+      <div>Call: <a href="tel:+15551234567" class="underline">+1 (555) 123-4567</a></div>
+    </div>
+  </div>
   <header class="bg-white border-b border-slate-200 shadow-sm">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
       <a href="#" class="flex items-center gap-3">
@@ -18,11 +24,13 @@
       </a>
 
       <div class="hidden items-center gap-3 md:flex">
-        <nav class="flex items-center gap-1">
-          <a href="#" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">Home</a>
-          <a href="#features" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">Features</a>
-          <a href="#pricing" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">Pricing</a>
-          <a href="#contact" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">Contact</a>
+        <nav aria-label="Primary navigation" class="flex items-center gap-1">
+          <ul class="flex items-center gap-1">
+            <li><a href="#" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">Home</a></li>
+            <li><a href="#features" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">Features</a></li>
+            <li><a href="#pricing" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">Pricing</a></li>
+            <li><a href="#contact" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">Contact</a></li>
+          </ul>
         </nav>
 
         <div class="flex items-center gap-2">
@@ -40,16 +48,18 @@
     </div>
 
     <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
-      <div class="space-y-1 px-4 py-4">
-        <a href="#" class="block rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100">Home</a>
-        <a href="#features" class="block rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100">Features</a>
-        <a href="#pricing" class="block rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100">Pricing</a>
-        <a href="#contact" class="block rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100">Contact</a>
+      <nav aria-label="Mobile navigation" class="space-y-1 px-4 py-4">
+        <ul class="space-y-1">
+          <li><a href="#" class="block rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100">Home</a></li>
+          <li><a href="#features" class="block rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100">Features</a></li>
+          <li><a href="#pricing" class="block rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100">Pricing</a></li>
+          <li><a href="#contact" class="block rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100">Contact</a></li>
+        </ul>
         <div class="mt-2 flex flex-col gap-2">
           <a href="#" class="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">Sign In</a>
           <a href="#" class="inline-flex w-full items-center justify-center rounded-full bg-indigo-600 px-4 py-3 text-sm font-semibold text-white hover:bg-indigo-700">Get Started</a>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -142,6 +152,28 @@
       </div>
     </section>
 
+    <section id="about" class="mt-16 rounded-3xl bg-white p-8 shadow-sm sm:p-10">
+      <div class="mx-auto max-w-4xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-600">About</p>
+        <h2 class="mt-3 text-2xl font-semibold tracking-tight text-slate-900">About Road Dev</h2>
+        <p class="mt-4 text-base leading-7 text-slate-600">Road Dev builds responsive, accessible UI templates and components that help teams ship faster. We focus on clean design, Tailwind CSS utilities, and developer productivity.</p>
+        <dl class="mt-6 grid gap-4 sm:grid-cols-3">
+          <div>
+            <dt class="text-sm font-medium text-slate-500">Location</dt>
+            <dd class="mt-1 text-slate-900">123 Developer Lane<br/>San Francisco, CA</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-slate-500">Email</dt>
+            <dd class="mt-1 text-slate-900"><a href="mailto:hello@roaddev.com" class="underline">hello@roaddev.com</a></dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-slate-500">Hours</dt>
+            <dd class="mt-1 text-slate-900">Mon–Fri, 9am–5pm PT</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
     <section id="contact" class="mt-16 rounded-3xl bg-white p-8 shadow-sm sm:p-10">
       <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
         <div>
@@ -149,17 +181,64 @@
           <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">Ready to launch your next page?</h2>
           <p class="mt-4 max-w-xl text-base leading-7 text-slate-600">Send a quick message to start with the same responsive layout and navigation system used here.</p>
         </div>
-        <form class="space-y-4">
+        <form class="space-y-4" action="#" method="post" novalidate>
           <div class="grid gap-4 sm:grid-cols-2">
-            <input type="text" placeholder="Name" class="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100" />
-            <input type="email" placeholder="Email" class="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100" />
+            <label class="block">
+              <span class="text-sm font-medium text-slate-700">Name</span>
+              <input type="text" name="name" placeholder="Your name" class="mt-2 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium text-slate-700">Email</span>
+              <input type="email" name="email" placeholder="you@example.com" class="mt-2 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100" />
+            </label>
           </div>
-          <textarea placeholder="Message" rows="4" class="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"></textarea>
+          <label class="block">
+            <span class="text-sm font-medium text-slate-700">Message</span>
+            <textarea name="message" rows="4" placeholder="Tell us about your project" class="mt-2 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"></textarea>
+          </label>
           <button type="submit" class="w-full rounded-3xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700">Send message</button>
         </form>
       </div>
     </section>
   </main>
+
+  <footer class="mt-16 bg-slate-900 text-slate-200">
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="grid gap-8 md:grid-cols-3">
+        <div>
+          <p class="text-lg font-semibold text-white">Road Dev</p>
+          <p class="mt-3 text-sm text-slate-300">We help product teams launch polished responsive websites faster with Tailwind UI templates and developer-first design systems.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <h4 class="text-sm font-semibold text-white">Explore</h4>
+          <ul class="mt-3 space-y-2 text-sm text-slate-300">
+            <li><a href="#features" class="hover:underline">Features</a></li>
+            <li><a href="#pricing" class="hover:underline">Pricing</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
+        <address class="not-italic text-sm text-slate-300">
+          <h4 class="text-sm font-semibold text-white">Contact</h4>
+          <p class="mt-3">hello@roaddev.com</p>
+          <p class="mt-1">+1 (555) 123-4567</p>
+          <div class="mt-4 flex gap-3">
+            <a href="#" class="text-slate-300 hover:text-white">Twitter</a>
+            <a href="#" class="text-slate-300 hover:text-white">GitHub</a>
+            <a href="#" class="text-slate-300 hover:text-white">LinkedIn</a>
+          </div>
+        </address>
+      </div>
+      <div class="mt-8 border-t border-slate-800 pt-6 text-sm text-slate-400">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 Road Dev — All rights reserved.</p>
+          <div class="flex gap-4">
+            <a href="#" class="hover:underline">Privacy</a>
+            <a href="#" class="hover:underline">Terms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script>
     const mobileMenuButton = document.getElementById('mobile-menu-button');
